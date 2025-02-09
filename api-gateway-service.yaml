@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway
+  namespace: ecommerce
+spec:
+  type: NodePort  # Using NodePort for Minikube
+  ports:
+  - port: 80
+    targetPort: 3000
+    nodePort: 30000
+  selector:
+    app: api-gateway
