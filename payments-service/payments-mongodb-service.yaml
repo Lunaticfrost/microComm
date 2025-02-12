@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: payments-mongodb
+  namespace: ecommerce
+spec:
+  selector:
+    app: payments-mongodb
+  ports:
+  - port: 27017
+    targetPort: 27017
+  type: ClusterIP
