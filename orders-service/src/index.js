@@ -101,6 +101,7 @@ app.post("/orders", auth, async (req, res) => {
       0
     );
 
+    // Create new order
     const order = new Order({
       userId: req.userId,
       items,
