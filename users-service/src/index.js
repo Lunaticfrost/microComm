@@ -120,7 +120,7 @@ app.post("/login", async (req, res) => {
 
     res.json({ token });
   } catch (error) {
-    res.status(500).json({ error: "Error logging in" });
+    res.status(500).json({ error: "Error while logging in. Please try again later!" });
   }
 });
 
@@ -130,7 +130,7 @@ app.get("/profile", auth, async (req, res) => {
     const user = await User.findById(req.user._id).select("-password");
     res.json(user);
   } catch (error) {
-    res.status(500).json({ error: "Error fetching profile" });
+    res.status(500).json({ error: "Error fetching user profile" });
   }
 });
 
@@ -152,7 +152,7 @@ app.patch("/profile", auth, async (req, res) => {
     await req.user.save();
     res.json(req.user);
   } catch (error) {
-    res.status(400).json({ error: "Error updating profile" });
+    res.status(400).json({ error: "Error updating user profile" });
   }
 });
 
